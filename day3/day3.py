@@ -11,7 +11,7 @@ test = pd.read_csv('test.txt', names=header_list)
 # Why 100? Welp I think it's long enough, lol.
 df['temp'] = [100*i for i in df['temp']]
 
-def check_tree(dataframe, down, right): 
+def check_trees(dataframe, down, right): 
     tree_sum = 0 
     position = 0
     num_of_row = dataframe.shape[0]
@@ -23,18 +23,18 @@ def check_tree(dataframe, down, right):
 
     return tree_sum
     
-print(check_tree(df, 1, 3))
+print(check_trees(df, 1, 3))
 
 
 # Part 2
 def all_slopes(tup_list, dataframe):
-    
     dataframe['temp'] = [100*i for i in dataframe['temp']]
     sum_list = []
 
     for (right, down) in tup_list:
-        each_slope = check_tree(dataframe, down, right)
+        each_slope = check_trees(dataframe, down, right)
         sum_list.append(each_slope)
+
     return np.prod(sum_list)
 
 tup_list = [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]
