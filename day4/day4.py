@@ -79,15 +79,9 @@ df = df[df['hcl'].apply(hcl_filter)]
 
 # Filter 'hgt'
 def hgt_filter(str):
-    if str.endswith(('cm', 'in')):
-        if str.endswith('cm') and (150 <= int(str[:-2]) <= 193):
-            return True
-        elif str.endswith('in') and (59 <= int(str[:-2]) <= 75):
-            return True
-        else: 
-            return False
-    else: 
-        return False 
+    return ((str.endswith('cm') and (150 <= int(str[:-2]) <= 193)) or 
+            (str.endswith('in') and (59 <= int(str[:-2]) <= 75)))
+
 
 df = df[df['hgt'].apply(hgt_filter)]
 
