@@ -25,12 +25,10 @@ for i in list2:
     str_list = list(filter(None, indv_doc))
     list3.append(str_list)
 
-
 dict_list = []
 for each_list in list3: 
     d = dict(str.split(':') for str in each_list) 
     dict_list.append(d)
-
 
 df = pd.DataFrame(dict_list)
 df.drop('cid', axis=1, inplace=True)
@@ -81,8 +79,6 @@ df = df[df['hcl'].apply(hcl_filter)]
 def hgt_filter(str):
     return ((str.endswith('cm') and (150 <= int(str[:-2]) <= 193)) or 
             (str.endswith('in') and (59 <= int(str[:-2]) <= 75)))
-
-
 df = df[df['hgt'].apply(hgt_filter)]
 
 print(df.shape[0])
