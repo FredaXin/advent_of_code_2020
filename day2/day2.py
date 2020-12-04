@@ -8,6 +8,7 @@ df['max'] = [int(i.split('-')[1]) for i in df['digit']]
 df['letter'] = [i.split()[1].strip(':') for i in df['temp']]
 df['password'] = [i.split()[2] for i in df['temp']]
 
+# Part 1
 
 def num_of_val_pass(dataframe):
     total = 0
@@ -22,6 +23,8 @@ def num_of_val_pass(dataframe):
 
 print(num_of_val_pass(df))
 
+
+# Part 2
 
 def num_of_val_pass_2(dataframe):
     total = 0
