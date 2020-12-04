@@ -11,6 +11,8 @@ test = pd.read_csv('test.txt', names=header_list)
 df['temp'] = [100*i for i in df['temp']]
 # Why 100? Welp I think it's long enough, lol.
 
+print(df.head())
+
 def check_trees(dataframe, down, right): 
 
     tree_sum = 0 
